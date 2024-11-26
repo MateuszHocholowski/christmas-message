@@ -17,42 +17,7 @@
             align-items: center;
             height: 100vh;
         }
-        #passwordScreen {
-            background-color: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-        }
-        #passwordInput {
-            padding: 12px 16px;
-            font-size: 16px;
-            border: 2px solid #4F7942;
-            border-radius: 6px;
-            margin-right: 12px;
-            width: 200px;
-        }
-        #passwordButton {
-            padding: 12px 24px;
-            font-size: 16px;
-            background-color: #4F7942;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-        #passwordButton:hover {
-            background-color: #3d5a33;
-        }
-        .error-message {
-            color: #D42426;
-            display: none;
-            margin-top: 12px;
-        }
-        #messageContent {
-            display: none;
+        #messageContainer {
             background-color: white;
             padding: 40px;
             border-radius: 10px;
@@ -60,43 +25,49 @@
             max-width: 800px;
             width: 90%;
         }
+        .greeting {
+            font-size: 1.2em;
+            color: #D42426;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .items {
+            margin-left: 20px;
+        }
+        .item-title {
+            font-weight: bold;
+            color: #4F7942;
+        }
+        .signature {
+            margin-top: 30px;
+            font-style: italic;
+            color: #D42426;
+            font-weight: bold;
+        }
+        .history {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
     </style>
 </head>
 <body>
-    <div id="passwordScreen">
-        <h2>🎄 Christmas Message 🎄</h2>
-        <p>Please enter the password to view this message:</p>
-        <div>
-            <input type="password" id="passwordInput" placeholder="Enter password">
-            <button id="passwordButton" onclick="checkPassword()">Open Message</button>
-        </div>
-        <p id="errorMessage" class="error-message">Incorrect password. Please try again.</p>
-    </div>
-
-    <div id="messageContent">
-        <!-- Tutaj cała treść poprzedniej wiadomości -->
+    <div id="messageContainer">
         <div class="greeting">Dear James,</div>
-        <!-- ... reszta treści ... -->
+        <p>I hope you've been good all year; if so, proceed with opening the present!</p>
+        <p>Since my handwriting isn't the best, I decided to use this way to wish you and your whole family a Merry Christmas and a Happy New Year!</p>
+        <p>As part of your Christmas gift, I've collected a few items that I hope you will find interesting and enjoyable:</p>
+        <div class="items">
+            <p><span class="item-title">1. The Cyberiad</span> – This is a book by Poland's most acclaimed sci-fi/fantasy author, <strong>Stanisław Lem</strong>.</p>
+            <p><span class="item-title">2. Neuroshima Hex</span> – This is a board game that is very popular around here, so I figured it's unlikely you already have it in your arsenal. It's suitable for 2–4 players, fast-paced, and the gameplay is relatively short. I'm sure you'll enjoy playing it with the boys or some friends.</p>
+            <p><span class="item-title">3. Scout Cross</span> – This one, I hope, will pique your interest as you are deeply involved in scouting. The Scout Cross is a badge/award granted to Polish scouts who prove themselves worthy. Only after receiving this cross can one truly call themselves a scout and wear it on their uniform. It carries significant symbolism (I'm sure you can find articles about it if you're interested) and a rich history.</p>
+        </div>
+        <div class="history">
+            During WWII, Polish scouting was highly involved in the underground anti-occupation movement under the codename <strong>Grey Ranks</strong>, which gives this badge great meaning to Polish scouts today. This particular cross belonged to me, and I hope you'll find an opportunity to share its story with Scottish scouts, giving it a purpose beyond lying at the bottom of a closet.
+        </div>
+        <p>Anyway, sorry for the long letter! All the best to you, Eilidh, the boys, and both your families!</p>
+        <div class="signature">Merry Christmas!<br>Santaragan</div>
     </div>
-
-    <script>
-        function checkPassword() {
-            const password = "TwojeHasło123"; // Ustaw własne hasło
-            const input = document.getElementById('passwordInput').value;
-            const messageContent = document.getElementById('messageContent');
-            const passwordScreen = document.getElementById('passwordScreen');
-            const errorMessage = document.getElementById('errorMessage');
-
-            if (input === password) {
-                passwordScreen.style.display = 'none';
-                messageContent.style.display = 'block';
-            } else {
-                errorMessage.style.display = 'block';
-                setTimeout(() => {
-                    errorMessage.style.display = 'none';
-                }, 3000);
-            }
-        }
-    </script>
 </body>
 </html>
